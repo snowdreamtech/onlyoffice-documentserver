@@ -42,6 +42,14 @@ RUN set -eux \
     && rm -rf /var/tmp/* \
     && echo 'export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"' >> /etc/bash.bashrc 
 
+RUN set -eux \
+    wget -c https://github.com/snowdreamtech/onlyoffice-core-fonts/archive/refs/heads/main.zip \
+    && unzip main.zip \
+    && mkdir -p /usr/share/fonts/truetype/custom/snowdreamtech \ 
+    && mv onlyoffice-core-fonts-main/* /usr/share/fonts/truetype/custom/snowdreamtech/ \
+    && rm -rfv main.zip \
+    && rm -rfv onlyoffice-core-fonts-main
+
 COPY vimrc.local /etc/vim/vimrc.local
 
 COPY docker-entrypoint.sh /usr/local/bin/
