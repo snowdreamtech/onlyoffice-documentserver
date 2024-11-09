@@ -91,9 +91,9 @@ jobs:
         uses: docker/metadata-action@v5.5.1
         with:
           images: |
-            name=snowdreamtech/ubuntu,enable=true
-            name=ghcr.io/snowdreamtech/ubuntu,enable=true
-            name=quay.io/snowdreamtech/ubuntu,enable=true
+            name=snowdreamtech/onlyoffice-documentserver,enable=true
+            name=ghcr.io/snowdreamtech/onlyoffice-documentserver,enable=true
+            name=quay.io/snowdreamtech/onlyoffice-documentserver,enable=true
           flavor: |
             latest=false  
             prefix=
@@ -103,8 +103,6 @@ jobs:
             type=edge,enable=true,priority=700,prefix=,suffix=,branch=dev
             type=raw,enable=${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name != 'schedule' }},priority=200,prefix=,suffix=,value=latest
             type=raw,enable=${{ startsWith(github.ref, 'refs/tags/') }},priority=200,prefix=,suffix=,value=latest
-            type=raw,enable=${{ (github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master') && github.event_name != 'schedule' }},priority=200,prefix=,suffix=,value=oracular 
-            type=raw,enable=${{ startsWith(github.ref, 'refs/tags/') }},priority=200,prefix=,suffix=,value=oracular 
             type=schedule,enable=true,priority=1000,prefix=,suffix=,pattern=nightly
             type=match,enable=true,priority=800,prefix=,suffix=,pattern=\d+.\d+.\d+,group=0,value=
             type=match,enable=true,priority=800,prefix=,suffix=,pattern=\d+.\d+,group=0,value=

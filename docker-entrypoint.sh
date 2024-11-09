@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# run document server
+/app/ds/run-document-server.sh
+
 # exec commands
 if [ -n "$*" ]; then
     sh -c "$*"
