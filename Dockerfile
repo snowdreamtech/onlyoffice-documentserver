@@ -43,7 +43,7 @@ RUN set -eux \
     && echo 'export PROMPT_COMMAND="history -a; $PROMPT_COMMAND"' >> /etc/bash.bashrc 
 
 RUN set -eux \
-    wget -c https://github.com/snowdreamtech/onlyoffice-core-fonts/archive/refs/heads/main.zip \
+    wget -c https://github.com/snowdreamtech/onlyoffice-core-fonts/archive/refs/heads/main.zip -O main.zip \
     && unzip main.zip \
     && mkdir -p /usr/share/fonts/truetype/custom/snowdreamtech \ 
     && mv onlyoffice-core-fonts-main/* /usr/share/fonts/truetype/custom/snowdreamtech/ \
